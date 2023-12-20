@@ -24,7 +24,7 @@
                     </thead>
                     @forelse ($characters as $character)
                         <tbody>
-                            <tr>
+                            <tr class="align-middle">
                                 <td>{{ $character->name }}</td>
                                 <td>{{ $character->class }}</td>
                                 {{-- <td>{{ $character->bio }}</td> --}}
@@ -32,9 +32,15 @@
                                 <td>{{ $character->defense }}</td>
                                 <td>{{ $character->speed }}</td>
                                 <td>{{ $character->hp }}</td>
-                                <td>
+                                <td class="d-flex align-items-center gap-2">
                                     <a class="btn btn-primary" href="{{ route('characters.show', $character) }}">More
                                         Info</a>
+                                    <a href="{{ route('characters.edit', $character)}}" class="btn btn-warning">Edit</a>
+                                    <form action="{{ route('characters.destroy', $character)}}" method="POST" class="ms-5">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button class="btn btn-danger">Kill</button>
+                                    </form>
                                 </td>
                             </tr>
                         @empty

@@ -30,9 +30,13 @@
                 <span class="fw-bold">{{ $character->hp }}</span>
             </li>
         </ul>
-        <div class="card-body">
+        <div class="card-body d-flex justify-content-between">
             <a href="{{ route('characters.edit', $character)}}" class="btn btn-warning btn-sm">Edit</a>
-            <a href="#" class="card-link">Delete</a>
+            <form action="{{ route('characters.destroy', $character)}}" method="POST">
+                @csrf
+                @method('DELETE')
+                <button class="btn btn-danger btn-sm">Kill</button>
+            </form>
         </div>
     </div>
 </div>

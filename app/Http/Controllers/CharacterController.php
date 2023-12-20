@@ -50,4 +50,8 @@ class CharacterController extends Controller
         return redirect()->route('characters.show', $character);
     }
 
+    public function destroy(Character $character) {
+        $character->delete();
+        return redirect()->route('characters.index');
+    }
 }
