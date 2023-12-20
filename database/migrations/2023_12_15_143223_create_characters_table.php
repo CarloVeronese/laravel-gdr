@@ -15,8 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('name', 50);
             $table->string('bio');
-            $table->tinyInteger('defense');//->unsigned(); possono essere valori negativi?
-            $table->tinyInteger('speed'); 
+            $table->tinyInteger('defense'); //->unsigned(); possono essere valori negativi?
+            $table->tinyInteger('speed');
             $table->tinyInteger('hp');
             $table->tinyInteger('strength');
             $table->string('class', 20);
