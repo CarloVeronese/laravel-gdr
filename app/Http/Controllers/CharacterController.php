@@ -36,4 +36,16 @@ class CharacterController extends Controller
 
         return redirect()->route('characters.show', $newCharachter->id);
     }
+
+    public function edit(Character $character)
+    {
+        return view('characters.edit', compact('character'));
+    }
+
+    public function update(Request $request, Character $character)
+
+    {
+        
+    }
+
 }
