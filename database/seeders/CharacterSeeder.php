@@ -12,7 +12,7 @@ class CharacterSeeder extends Seeder
 
     public function run(Faker $faker)
     {
-        for ($i = 0; $i < 100; $i++) {
+        for ($i = 0; $i < 10; $i++) {
             $new_character = new Character();
             $new_character->name = $faker->name();
             $new_character->bio = $faker->sentence();

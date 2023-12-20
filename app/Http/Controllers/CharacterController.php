@@ -29,5 +29,11 @@ class CharacterController extends Controller
 
     public function store(Request $request)
     {
+
+        $data = $request->all();
+
+        $newCharachter = Character::create($data);
+
+        return redirect()->route('characters.show', $newCharachter->id);
     }
 }

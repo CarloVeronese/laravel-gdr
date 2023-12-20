@@ -14,7 +14,7 @@
                             <th scope="col">Class</th>
                             {{-- <th scope="col">Bio</th> --}}
                             <th scope="col">Strenght</th>
-                            <th scope="col">Defence</th>
+                            <th scope="col">Defense</th>
                             <th scope="col">Speed</th>
                             <th scope="col">Hp</th>
                             <th>
