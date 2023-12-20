@@ -36,12 +36,14 @@
                                     <a class="btn btn-primary" href="{{ route('characters.show', $character) }}">More
                                         Info</a>
                                     <a href="{{ route('characters.edit', $character)}}" class="btn btn-warning">Edit</a>
-                                    <form action="{{ route('characters.destroy', $character)}}" method="POST" class="ms-5">
+                                    {{-- <form action="{{ route('characters.destroy', $character)}}" method="POST" class="ms-5">
                                         @csrf
                                         @method('DELETE')
                                         <button class="btn btn-danger">Kill</button>
-                                    </form>
+                                    </form> --}}
+                                    
                                 </td>
+                                {{-- form per la conferma di elimina del comic --}}
                             </tr>
                         @empty
                             non ci sono risultati
@@ -51,4 +53,6 @@
             </div>
         </div>
     </section>
+
+    
 @endsection
