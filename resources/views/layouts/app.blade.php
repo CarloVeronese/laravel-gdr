@@ -15,7 +15,7 @@
 
 </head>
 
-<body>
+<body class="vh-100 d-flex flex-column">
     <header>
         <div class="container py-1">
             <div class="row">
@@ -36,7 +36,7 @@
         </div>
     </header>
 
-    <main>
+    <main class="flex-grow-1">
         @yield('content')
     </main>
 

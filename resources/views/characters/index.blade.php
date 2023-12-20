@@ -11,24 +11,30 @@
                 <thead>
                     <tr>
                         <th scope="col">Name</th>
-                        <th scope="col">Bio</th>
+                        <th scope="col">Class</th>
+                        {{-- <th scope="col">Bio</th> --}}
+                        <th scope="col">Strenght</th>
                         <th scope="col">Defence</th>
                         <th scope="col">Speed</th>
                         <th scope="col">Hp</th>
-                        <th scope="col">Strenght</th>
-                        <th scope="col">Class</th>
+                        <th>
+                            {{-- <a class="btn btn-success" href="{{ route('characters.create') }}">New Character</a> --}}
+                        </th>
                     </tr>
                 </thead>
                 @forelse ($characters as $character)
                 <tbody>
                     <tr>
                         <td>{{ $character->name }}</td>
-                        <td>{{ $character->bio }}</td>
+                        <td>{{ $character->class }}</td>
+                        {{-- <td>{{ $character->bio }}</td> --}}
+                        <td>{{ $character->strength }}</td>
                         <td>{{ $character->defense }}</td>
                         <td>{{ $character->speed }}</td>
                         <td>{{ $character->hp }}</td>
-                        <td>{{ $character->strength }}</td>
-                        <td>{{ $character->class }}</td>
+                        <td>
+                            <a class="btn btn-primary" href="{{ route('characters.show', $character) }}">More Info</a>
+                        </td>
                     </tr>
                     @empty
                     non ci sono risultati
