@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Guest;
+namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Character;
@@ -15,6 +15,6 @@ class CharacterController extends Controller
 
         $characters = Character::all();
 
-        return view('guest.index', compact('characters'));
+        return view('characters.index', compact('characters'));
     }
 }
