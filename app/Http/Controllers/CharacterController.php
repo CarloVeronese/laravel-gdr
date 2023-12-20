@@ -45,7 +45,9 @@ class CharacterController extends Controller
     public function update(Request $request, Character $character)
 
     {
-        
+        $data = $request->all();
+        $character->update($data);
+        return redirect()->route('characters.show', $character);
     }
 
 }
