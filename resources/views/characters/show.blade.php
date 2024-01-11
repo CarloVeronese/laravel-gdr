@@ -37,8 +37,7 @@
                 @method('DELETE')
                 <button class="btn btn-danger btn-sm">Kill</button>
             </form> --}}
-            <button id="myBtn" class="btn btn-danger delete">Kill</button>
-
+                <button id="myBtn" class="btn btn-danger delete">Kill</button>
                 <div id="bgForm" class="bg-form">
                     <div class="d-flex gap-3 delete-form">
                         <form action="{{ route('characters.destroy', $character->id) }}" method="POST">
