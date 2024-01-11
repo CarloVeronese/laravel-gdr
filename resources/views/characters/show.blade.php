@@ -11,7 +11,7 @@
             <ul class="list-group list-group-flush">
                 <li class="list-group-item d-flex justify-content-between">
                     <span>Class</span>
-                    <span class="fw-bold">{{ $character->type->name }}</span>
+                    <span class="fw-bold">{{ $character->type->name ?? '-' }}</span>
                 </li>
                 <li class="list-group-item d-flex justify-content-between">
                     <span>Strength</span>
@@ -29,27 +29,31 @@
                     <span>Health Points</span>
                     <span class="fw-bold">{{ $character->hp }}</span>
                 </li>
-            </ul>
-            <div class="card-body d-flex justify-content-between">
-                <a href="{{ route('characters.edit', $character) }}" class="btn btn-warning btn-sm">Edit</a>
-                {{-- <form action="{{ route('characters.destroy', $character)}}" method="POST">
+                <ul class="d-flex gap-2 my-2">
+                    @foreach ($character->items as $item)
+                        <li class="badge rounded-pill text-bg-primary d-flex">{{ $item->name }}</li>
+                    @endforeach ()
+                </ul>
+                <div class="card-body d-flex justify-content-between">
+                    <a href="{{ route('characters.edit', $character) }}" class="btn btn-warning btn-sm">Edit</a>
+                    {{-- <form action="{{ route('characters.destroy', $character)}}" method="POST">
                 @csrf
                 @method('DELETE')
                 <button class="btn btn-danger btn-sm">Kill</button>
             </form> --}}
-                <button id="myBtn" class="btn btn-danger delete">Kill</button>
-                <div id="bgForm" class="bg-form">
-                    <div class="d-flex gap-3 delete-form">
-                        <form action="{{ route('characters.destroy', $character->id) }}" method="POST">
+                    <button id="myBtn" class="btn btn-danger delete">Kill</button>
+                    <div id="bgForm" class="bg-form">
+                        <div class="d-flex gap-3 delete-form">
+                            <form action="{{ route('characters.destroy', $character->id) }}" method="POST">
 
-                            @csrf
-                            @method('DELETE')
+                                @csrf
+                                @method('DELETE')
 
-                            <button class="btn btn-danger btn-lg">Yes</button>
-                        </form>
-                        <button id="noBtn" class="btn btn-primary btn-lg">No</button>
+                                <button class="btn btn-danger btn-lg">Yes</button>
+                            </form>
+                            <button id="noBtn" class="btn btn-primary btn-lg">No</button>
+                        </div>
                     </div>
                 </div>
-            </div>
         </div>
     @endsection
