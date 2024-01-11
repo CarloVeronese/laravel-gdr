@@ -11,7 +11,7 @@
                     <thead>
                         <tr>
                             <th scope="col">Name</th>
-                            {{-- <th scope="col">Class</th> --}}
+                            <th scope="col">Class</th>
                             {{-- <th scope="col">Bio</th> --}}
                             <th scope="col">Strenght</th>
                             <th scope="col">Defense</th>
@@ -26,7 +26,7 @@
                         <tbody>
                             <tr class="align-middle">
                                 <td>{{ $character->name }}</td>
-                                {{-- <td>{{ $character->class }}</td> --}}
+                                <td>{{ $character->type->name }}</td>
                                 {{-- <td>{{ $character->bio }}</td> --}}
                                 <td>{{ $character->strength }}</td>
                                 <td>{{ $character->defense }}</td>

@@ -9,10 +9,10 @@
                 <p class="card-text">{{ $character->bio }}</p>
             </div>
             <ul class="list-group list-group-flush">
-                {{-- <li class="list-group-item d-flex justify-content-between">
-                <span>Class</span>
-                <span class="fw-bold">{{ $character->class }}</span>
-            </li> --}}
+                <li class="list-group-item d-flex justify-content-between">
+                    <span>Class</span>
+                    <span class="fw-bold">{{ $character->type->name }}</span>
+                </li>
                 <li class="list-group-item d-flex justify-content-between">
                     <span>Strength</span>
                     <span class="fw-bold">{{ $character->strength }}</span>

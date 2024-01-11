@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Character;
+use App\Models\Type;
 use Illuminate\Http\Request;
 
 class CharacterController extends Controller
@@ -24,7 +25,9 @@ class CharacterController extends Controller
 
     public function create()
     {
-        return view('characters.create');
+        $types = Type::orderBy('name', 'ASC')->get();
+
+        return view('characters.create', compact('types'));
     }
 
     public function store(Request $request)
@@ -39,7 +42,9 @@ class CharacterController extends Controller
 
     public function edit(Character $character)
     {
-        return view('characters.edit', compact('character'));
+        $types = Type::orderBy('name', 'ASC')->get();
+
+        return view('characters.edit', compact('character', 'types'));
     }
 
     public function update(Request $request, Character $character)
