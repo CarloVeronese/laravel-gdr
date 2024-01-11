@@ -20,7 +20,7 @@ class CharacterSeeder extends Seeder
             $new_character->speed = $faker->randomNumber(2, false);
             $new_character->hp = $faker->randomNumber(2, false);
             $new_character->strength = $faker->randomNumber(2, false);
-            $new_character->class = $faker->randomElement(['Mage', 'Fighter', 'Healer', 'Ranger', 'Tank']);
+            // $new_character->class = $faker->randomElement(['Mage', 'Fighter', 'Healer', 'Ranger', 'Tank']);
 
             $new_character->save();
         }

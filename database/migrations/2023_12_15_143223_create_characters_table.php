@@ -19,7 +19,7 @@ return new class extends Migration
             $table->tinyInteger('speed');
             $table->tinyInteger('hp');
             $table->tinyInteger('strength');
-            $table->string('class', 20);
+            // $table->string('class', 20);
             $table->timestamps();
         });
     }
