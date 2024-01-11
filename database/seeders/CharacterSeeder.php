@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Character;
+use App\Models\Item;
 use App\Models\Type;
 use Faker\Generator as Faker;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -14,7 +15,9 @@ class CharacterSeeder extends Seeder
     public function run(Faker $faker)
     {
         $types = Type::all();
+        $items = Item::all();
         $type_ids = $types->pluck('id');
+        $item_ids = $items->pluck('id');
 
         for ($i = 0; $i < 10; $i++) {
             $new_character = new Character();
@@ -27,6 +30,8 @@ class CharacterSeeder extends Seeder
             $new_character->type_id = $faker->randomElement($type_ids);
 
             $new_character->save();
+            // $item_ids->random(rand(0, $item_ids->count()))->all();
+            $new_character->items()->attach($faker->randomElements($item_ids, null));
         }
     }
 }
