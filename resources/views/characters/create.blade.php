@@ -12,17 +12,15 @@
                 <label for="bio" class="form-label">Description</label>
                 <textarea type="text" class="form-control" name="bio" id="bio" placeholder="Character Description"></textarea>
             </div>
-            {{-- <div class="mb-3">
-            <label for="class" class="form-label">Class</label>
-            <select type="text" class="form-control" name="class" id="class" placeholder="Character Class">
-                <option>Select a Class</option>
-                <option value="Mage">Mage</option>
-                <option value="Tank">Tank</option>
-                <option value="Healer">Healer</option>
-                <option value="Ranger">Ranger</option>
-                <option value="Fighter">Fighter</option>
-            </select>
-        </div> --}}
+            <div class="mb-3">
+                <label for="type_id" class="form-label">Type</label>
+                <select type="text" class="form-control" name="type_id" id="type_id" placeholder="Character Class" required>
+                    <option value="">Select a Class</option>
+                    @foreach($types as $type)
+                        <option @selected( old('type_id') == $type->id) value="{{ $type->id }}">{{ $type->name }}</option>
+                    @endforeach
+                </select>
+            </div>
             <div class="mb-3">
                 <label for="strength" class="form-label">Strength</label>
                 <input type="number" class="form-control" name="strength" id="strength" placeholder="Character Strength">

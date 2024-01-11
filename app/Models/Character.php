@@ -12,7 +12,6 @@ class Character extends Model
     protected $fillable = [
         'name',
         'bio',
-        // 'class',
         'strength',
         'defense',
         'speed',
