@@ -45,6 +45,14 @@
                     value="{{ old('hp', $character->hp) }}">
             </div>
             <div class="mb-3">
+                @foreach ($items as $item)
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" name="items[]" value="{{ $item->id }}" id="item-{{ $item->id }}" @checked(in_array($item->id, old('items', $character->items->pluck('id')->all())))>
+                        <label for="item-{{ $item->id }}" class="forum-check-label">{{ $item->name }}</label>
+                    </div>
+                @endforeach
+            </div>
+            <div class="mb-3">
                 <input type="submit" class="btn btn-warning" value="Save">
             </div>
         </form>

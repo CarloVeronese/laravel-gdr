@@ -36,22 +36,23 @@ class CharacterController extends Controller
 
         $data = $request->all();
 
-        $newCharachter = Character::create($data);
+        $newCharacter = Character::create($data);
 
         if($request->has('items')) {
-            $newCharachter->items()->attach($data[
+            $newCharacter->items()->attach($data[
                 'items'
             ]);
         } 
 
-        return redirect()->route('characters.show', $newCharachter->id);
+        return redirect()->route('characters.show', $newCharacter->id);
     }
 
     public function edit(Character $character)
     {
         $types = Type::orderBy('name', 'ASC')->get();
+        $items = Item::orderBy('name', 'ASC')->get();
 
-        return view('characters.edit', compact('character', 'types'));
+        return view('characters.edit', compact('character', 'types', 'items'));
     }
 
     public function update(Request $request, Character $character)
@@ -59,6 +60,13 @@ class CharacterController extends Controller
     {
         $data = $request->all();
         $character->update($data);
+        if($request->has('items')) {
+            $character->items()->sync($data[
+                'items'
+            ]);
+        } else {
+            $character->items()->detach();
+        }
         return redirect()->route('characters.show', $character);
     }
 
