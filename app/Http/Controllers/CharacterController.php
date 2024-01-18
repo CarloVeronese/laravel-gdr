@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Character;
 use App\Models\Type;
 use Illuminate\Http\Request;
+use App\Models\Item;
 
 class CharacterController extends Controller
 {
@@ -26,8 +27,8 @@ class CharacterController extends Controller
     public function create()
     {
         $types = Type::orderBy('name', 'ASC')->get();
-
-        return view('characters.create', compact('types'));
+        $items = Item::orderBy('name', 'ASC')->get();
+        return view('characters.create', compact('types', 'items'));
     }
 
     public function store(Request $request)
@@ -36,6 +37,12 @@ class CharacterController extends Controller
         $data = $request->all();
 
         $newCharachter = Character::create($data);
+
+        if($request->has('items')) {
+            $newCharachter->items()->attach($data[
+                'items'
+            ]);
+        } 
 
         return redirect()->route('characters.show', $newCharachter->id);
     }

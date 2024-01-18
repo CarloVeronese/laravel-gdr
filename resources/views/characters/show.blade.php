@@ -29,7 +29,8 @@
                     <span>Health Points</span>
                     <span class="fw-bold">{{ $character->hp }}</span>
                 </li>
-                <ul class="d-flex gap-2 my-2">
+            </ul>
+                <ul class="d-flex gap-2 my-2 flex-wrap align-items-center justify-content-center p-0">
                     @foreach ($character->items as $item)
                         <li class="badge rounded-pill text-bg-primary d-flex">{{ $item->name }}</li>
                     @endforeach ()
